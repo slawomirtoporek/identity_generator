@@ -54,4 +54,12 @@ for (let i = 0; i < 20; i++) {
   people.push(person);
 };
 
-console.log(people);
+const jsonData = JSON.stringify(people, null, 2);
+
+fs.writeFile('people.json', jsonData, (err) => {
+  if (err) {
+    console.log('Failed to save data');
+  } else {
+    console.log('Data was saved correctly');
+  };
+});
